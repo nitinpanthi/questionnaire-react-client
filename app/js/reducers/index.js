@@ -1,8 +1,17 @@
 import {
   combineReducers,
 } from 'redux';
-import assessmentReducer from './assessment.reducer.';
+
+import classificationsReducer from './classifications.reducer';
+import myAssessmentReducer from './my_assessments.reducer';
+import currentAssessmentReducer from './current_assessment.reducer';
+import currentQuestionReducer from './current_question.reducer';
+import profileReducer from './profile.reducer';
 
 export default combineReducers({
-  posts: assessmentReducer,
+  classifications: classificationsReducer,
+  myAssessments: myAssessmentReducer,
+  currentAssessment: currentAssessmentReducer,
+  currentQuestion: currentQuestionReducer,
+  profile: profileReducer,
 });
