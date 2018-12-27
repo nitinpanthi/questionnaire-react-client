@@ -6,25 +6,25 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
-import ClassificationCreator from './ClassificationCreator';
-import { fetchAllClassifications } from '../../../actions/classification.actions';
+import UserCreator from './UserCreator';
+import { fetchUsers } from '../../../actions/user.actions';
 
-class Classifications extends Component {
+class Users extends Component {
   constructor(props) {
     super(props);
-    const { classifications } = this.props;
+    const { users } = this.props;
 
     this.state = {
       columnDefs: [
         { headerName: 'Name', field: 'name' },
         { headerName: 'Description', field: 'description' },
       ],
-      rowData: classifications,
+      rowData: users,
     };
   }
 
-  componentWillMount() {
-    fetchAllClassifications();
+  componentDidMount() {
+    fetchUsers();
   }
 
   render() {
@@ -32,7 +32,7 @@ class Classifications extends Component {
 
     return (
       <section>
-        <ClassificationCreator />
+        <UserCreator />
         <div className="ag-theme-balham">
           <AgGridReact columnDefs={columnDefs} rowData={rowData} />
         </div>
@@ -41,16 +41,10 @@ class Classifications extends Component {
   }
 }
 
-Classifications.propTypes = {
-  classifications: PropTypes.arrayOf(PropTypes.object).isRequired,
+Users.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const mapDispatch = (dispatch) => ({
-  onLoadClassifications: () => {
-    dispatch(fetchAllClassifications());
-  }
-});
+const mapStateToProps = state => ({ users: state.users });
 
-const mapState = state => ({ classifications: state.classifications });
-
-export default connect(mapState, mapDispatch)(Classifications);
+export default connect(mapStateToProps)(Users);

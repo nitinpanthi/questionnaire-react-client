@@ -1,8 +1,15 @@
 {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "globals": { 
-      "fetch": false,
-      "document": false
-     }
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "globals": {
+    "fetch": false,
+    "document": false
+  },
+  "rules": {
+    "jsx-a11y/label-has-for": [2, {
+      "required": {
+        "every": ["id"]
+      }
+    }]
+  }
 }

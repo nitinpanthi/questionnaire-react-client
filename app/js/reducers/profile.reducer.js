@@ -12,6 +12,7 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case LOAD_USER:
+      return action.user;
     default:
       return state;
   }

@@ -1,8 +1,14 @@
-export const getAll = () => fetch('http://localhost:8080/secured/api/classifications');
+export const getAll = () => fetch('/api/classifications');
 
-export const create = classification => fetch('http://localhost:8080/secured/api/classification/', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
+export const create = classification => fetch(
+  '/secured/api/classification', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(classification),
   },
-}, classification);
+);
+
+export const remove = classificationName => fetch(`/secured/api/classification/${classificationName}`, {
+  method: 'DELETE',
+  headers: { 'Content-Type': 'application/json' },
+});

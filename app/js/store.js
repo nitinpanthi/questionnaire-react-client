@@ -4,18 +4,16 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-import rootReducer from './reducers';
+import rootReducer from './reducers/index';
 
-const initialState = {
-  classifications: [],
-  myAssessments: [],
-  currentAssessment: {},
-  currentQuestion: {},
-  profile: {},
-};
+const initialState = {};
 
 const middleWare = [thunk];
 
-const store = createStore(rootReducer, initialState, applyMiddleware(...middleWare));
+const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(...middleWare),
+);
 
 export default store;
