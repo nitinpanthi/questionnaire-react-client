@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Assessment = (props) => {
-  const {
-    classifications,
-    title,
-    description,
-    score,
-  } = props;
-
+const Assessment = ({
+  classifications,
+  title,
+  description,
+  score,
+}) => {
   const classificationItems = classifications.map(
     classification => <li key={classification.id}>{classification.name}</li>,
   );
@@ -28,7 +26,7 @@ Assessment.defaultProps = {
 };
 
 Assessment.propTypes = {
-  classifications: PropTypes.arrayOf(PropTypes.string),
+  classifications: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,

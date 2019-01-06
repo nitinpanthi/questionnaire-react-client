@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import MyAssessments from './assessment/MyAssessments';
+import AssessmentsList from './assessment/AssessmentsList';
 import Administration from './administration/Administration';
 
 export default function Main() {
   return (
-    <section>
-      <Route exact path="/" component={MyAssessments} />
+    <main>
+      <Route exact path="/" component={AssessmentsList} />
       <Route path="/administration" component={Administration} />
-    </section>
+    </main>
   );
 }
