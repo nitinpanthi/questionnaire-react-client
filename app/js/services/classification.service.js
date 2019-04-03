@@ -10,7 +10,7 @@ export const create = classification => fetch(
   },
 );
 
-export const remove = classificationName => fetch(`/secured/api/classification/${classificationName}`, {
+export const remove = name => fetch(`/secured/api/classification/${name}`, {
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',

@@ -1,0 +1,52 @@
+@import '../helpers/colors';
+@import '../helpers/fonts';
+
+.assessment_list {
+  ul li {
+    list-style: none;
+  }
+}
+
+.assessment {
+  background: $smoke;
+  padding: 20px 30px;
+
+  .description {
+    line-height: 1.4;
+  }
+
+  .score {
+    position: relative;
+    top: 16px;
+    font-weight: bold;
+    font-size: 16px;
+    color: $slate;
+    font-family: $heading;
+    float: right;
+  }
+
+  .categories {
+    .category_title {
+      display: inline-block;
+      padding-right: 12px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    ul {
+      padding: 0px;
+      display: inline-block;
+    }
+
+    ul li {
+      list-style: none;
+      background: $tomato;
+      color: $smoke;
+      display: inline-block;
+      padding: 10px;
+      font-weight: bold;
+      margin-right: 5px;
+      position: relative;
+    }
+  }
+}

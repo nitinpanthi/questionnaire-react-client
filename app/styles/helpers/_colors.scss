@@ -1,0 +1,12 @@
+$tomato: #FC644D;
+$butter: #F2D388;
+$green: #4AAD52;
+$smoke: #F5F5F5;
+$slate: #708090;
+
+$success: $green;
+$active: $tomato;
+$error: darken($tomato, 25%);
+$warning: $butter; 
+$disabled: lighten($slate, 15%);
+$clear: white;

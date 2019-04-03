@@ -6,7 +6,7 @@ import SignInButton from './navigation/SignInButton';
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav className="navigation">
       <ul>
         <li><Link to="/">My Assessments</Link></li>
         <li><Link to="/administration">Administration</Link></li>

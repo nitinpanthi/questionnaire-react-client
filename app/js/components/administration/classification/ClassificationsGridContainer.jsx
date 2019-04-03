@@ -14,7 +14,9 @@ class ClassificationsGridContainer extends Component {
   render() {
     const { classifications } = this.props;
     return (
-      <ClassificationsGrid classifications={classifications} />
+      classifications && classifications.length !== 0
+        ? <ClassificationsGrid classifications={classifications} />
+        : null
     );
   }
 }

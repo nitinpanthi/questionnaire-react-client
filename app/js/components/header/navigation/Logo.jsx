@@ -1,5 +1,10 @@
 import React from 'react';
 
 export default function Logo() {
-  return <h1> Questionnnaire </h1>;
+  return (
+    <div className="logo">
+      <span className="q">Q</span>
+      <span className="qrest">uestionnnaire</span>
+    </div>
+  );
 }

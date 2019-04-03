@@ -1,10 +1,11 @@
 import React from 'react';
+import { IoIosSearch } from 'react-icons/io';
 
 export default function Search() {
   return (
-    <div>
+    <div className="search_bar">
       <input type="search" name="search" id="search" />
-      <button>Search</button>
+      <button><IoIosSearch /></button>
     </div>
   );
 }

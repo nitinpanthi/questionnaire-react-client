@@ -5,6 +5,7 @@ import {
 import {
   create,
   getAll,
+  remove,
 } from '../services/classification.service';
 
 export const fetchAllClassifications = () => (dispatch) => {
@@ -18,5 +19,10 @@ export const fetchAllClassifications = () => (dispatch) => {
 
 export const createNewClassification = (classification) => {
   create(classification)
+    .then(fetchAllClassifications());
+};
+
+export const removeClassification = (name) => {
+  remove(name)
     .then(fetchAllClassifications());
 };

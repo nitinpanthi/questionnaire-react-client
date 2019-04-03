@@ -1,0 +1,10 @@
+@import './atoms/buttons';
+@import './atoms/headings';
+@import './atoms/paragraphs';
+
+@import './pages/home';
+
+body {
+  font-family: $normal;
+  font-size: 15px;
+}

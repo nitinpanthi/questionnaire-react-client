@@ -1,0 +1,17 @@
+@import '../atoms/buttons';
+@import '../atoms/inputs';
+@import '../helpers/colors';
+
+.search_bar {
+  button {
+    @extend .button_no_outline_active;
+    padding: 0px 5px 5px 16px;
+    font-size: 25px;
+    color: $smoke;
+  }
+
+  input {
+    @extend .text_input;
+    width: 400px;
+  }
+}

@@ -9,7 +9,7 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 import { dispatchAfterGettingEditableAssessments } from '../../../actions/assessment.actions';
 
-class AssessmentsGrid extends Component {
+export default class AssessmentsGrid extends Component {
   constructor(props) {
     super(props);
     const { users } = this.props;
@@ -45,6 +45,6 @@ AssessmentsGrid.propTypes = {
   users: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const mapStateToProps = state => ({ assessments: state.assessments });
+// const mapStateToProps = state => ({ assessments: state.assessments });
 
-export default connect(mapStateToProps)(AssessmentsGrid);
+// export default connect(mapStateToProps)(AssessmentsGrid);

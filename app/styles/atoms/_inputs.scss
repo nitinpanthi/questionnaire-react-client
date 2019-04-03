@@ -1,0 +1,9 @@
+@import '../helpers/colors';
+@import '../helpers/fonts';
+
+.text_input {
+  padding: 8px;
+  background: $clear;
+  border: 2px solid $slate;
+  font-size: 15px;
+}

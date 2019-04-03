@@ -12,11 +12,20 @@ const Assessment = ({
   );
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <ul>{classificationItems}</ul>
-      <p>{description}</p>
-      <span>{score}</span>
+    <div className="assessment">
+      <div>
+        <h1 className="title">{title}</h1>
+      </div>
+      <p className="description">{description}</p>
+      <span className="score">
+        Average Score: {score}
+      </span>
+      <div className="categories">
+        <div className="category_title">
+          Categories
+        </div>
+        <ul>{classificationItems}</ul>
+      </div>
     </div>
   );
 };

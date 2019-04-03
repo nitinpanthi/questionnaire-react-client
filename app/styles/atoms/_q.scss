@@ -1,0 +1,21 @@
+@import '../helpers/colors';
+@import '../helpers/fonts';
+
+.logo {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.q {
+  font-size: 108px;
+  color: $tomato;
+  font-family: $fancy;
+}
+
+.qrest {
+  top: -24px;
+  position: relative;
+  font-family: $fancy_small;
+  font-size: 56px;
+  color: $tomato;
+}
