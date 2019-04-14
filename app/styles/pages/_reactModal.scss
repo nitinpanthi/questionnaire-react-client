@@ -1,0 +1,41 @@
+@import '../atoms/buttons';
+
+@mixin modal($width, $height) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: $clear;
+  border: 1px solid $disabled;
+  border-radius: 4px;
+  max-width: $width;
+  max-height: $height;
+  padding: 40px !important;
+
+  .close_button {
+    @include button_no_outline($active, $clear);
+    position: absolute;
+    font-size: 20px;
+    right: 0;
+    top: 0;
+  }
+
+  h3 {
+    margin-block-start: -0.5em;
+    margin-block-end: 1em;
+  }
+}
+
+.modal_large {
+  @include modal(800px, 600px);
+}
+
+.modal_medium {
+  @include modal(500px, 400px);
+}
+
+.modal_small {
+  @include modal(250px, 200px);
+}

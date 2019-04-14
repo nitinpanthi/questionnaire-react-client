@@ -2,33 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchAllClassifications } from '../../../actions/classification.actions';
+import {
+  updateClassificationListActionCreator,
+  toggleFormVisibilityActionCreator,
+  fetchClassifications,
+} from '../../../actions/classification.actions';
 import ClassificationsGrid from './ClassificationsGrid';
 
 class ClassificationsGridContainer extends Component {
   componentDidMount() {
-    const { fetchAndDispatchAllClassifications } = this.props;
-    fetchAndDispatchAllClassifications();
+    const { dispatchClassifications } = this.props;
+    fetchClassifications()
+      .then(classifications => dispatchClassifications(classifications));
   }
 
   render() {
-    const { classifications } = this.props;
+    const { classifications, toggleModalWindow, isModalWindowOpen } = this.props;
     return (
-      classifications && classifications.length !== 0
-        ? <ClassificationsGrid classifications={classifications} />
-        : null
+      <ClassificationsGrid
+        classifications={classifications}
+        toggleModalWindow={toggleModalWindow}
+        isModalWindowOpen={isModalWindowOpen}
+      />
     );
   }
 }
 
 ClassificationsGridContainer.propTypes = {
-  fetchAndDispatchAllClassifications: PropTypes.func.isRequired,
+  dispatchClassifications: PropTypes.func.isRequired,
+  toggleModalWindow: PropTypes.func.isRequired,
   classifications: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isModalWindowOpen: PropTypes.bool.isRequired,
 };
 
 const mapDispatch = {
-  fetchAndDispatchAllClassifications: fetchAllClassifications,
+  dispatchClassifications: updateClassificationListActionCreator,
+  toggleModalWindow: toggleFormVisibilityActionCreator,
 };
 
-const mapState = state => ({ classifications: state.classifications });
+const mapState = state => ({
+  classifications: state.classifications.list,
+  isModalWindowOpen: state.classifications.isCreateClassificationFormOpen,
+});
+
 export default connect(mapState, mapDispatch)(ClassificationsGridContainer);

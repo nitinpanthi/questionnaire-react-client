@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <div className="logo">
       <span className="q">Q</span>
-      <span className="qrest">uestionnnaire</span>
+      <span className="qrest">uestionnaire</span>
     </div>
   );
 }

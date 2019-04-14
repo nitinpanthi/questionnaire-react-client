@@ -6,8 +6,8 @@
   button {
     @extend .button_no_outline_active;
     padding: 0px 5px 5px 16px;
-    font-size: 25px;
-    color: $smoke;
+    font-size: 25px !important;
+    color: $smoke !important;
   }
 
   input {

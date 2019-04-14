@@ -1,55 +1,63 @@
-import React, { Component, Fragment } from 'react';
-import { Form, Text } from 'informed';
-import { IoIosAdd } from 'react-icons/io';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { reduxForm, Field } from 'redux-form';
 
-import { createNewClassification } from '../../../actions/classification.actions';
+import {
+  saveClassification,
+  toggleFormVisibilityActionCreator,
+} from '../../../actions/classification.actions';
 
-class ClassificationCreator extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHidden: false,
-    };
+const validate = (values) => {
+  const errors = {};
+  if (!values.name) {
+    errors.name = 'Classification name is required.';
   }
-
-  toggleFormState() {
-    this.setState(previousState => ({
-      isHidden: !previousState.isHidden,
-      classification: previousState.classification,
-    }));
+  if (!values.description) {
+    errors.description = 'Classification description is required.';
   }
+  return errors;
+};
 
-  render() {
-    const { isHidden } = this.state;
+const renderInput = ({ input, meta, label }) => (
+  <Fragment>
+    <label>
+      {label}
+    </label>
+    <input {...input} />
+    {meta.error
+      && meta.touched
+      && (
+        <span>
+          {meta.error}
+        </span>
+      )
+    }
+  </Fragment>
+);
 
-    return (
-      <Form id="classification-creator">
-        {({ formState }) => (
-          <Fragment>
-            {
-              isHidden === true
-                ? (
-                  <Fragment>
-                    <label htmlFor="name">Name:</label>
-                    <Text field="name" id="classification-name" />
-                    <label htmlFor="description">Description:</label>
-                    <Text field="description" id="classification-description" />
-                    <button type="button" onClick={() => createNewClassification(formState.values)()}>Submit</button>
-                    <button type="button" onClick={this.toggleFormState.bind(this)}>Cancel</button>
-                  </Fragment>
-                )
-                : (
-                  <button type="button" onClick={this.toggleFormState.bind(this)} className="button_active">
-                    <IoIosAdd />
-                    Create New Classification
-                  </button>
-                )
-            }
-          </Fragment>
-        )}
-      </Form>
-    );
-  }
-}
+const ClassificationCreator = ({ handleSubmit, toggleModalWindow, onSubmit }) => (
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <Fragment>
+      <Field name="name" label="Name" component={renderInput} />
+      <Field name="description" label="Description" component={renderInput} />
+      <button type="submit" className="button_active">Submit</button>
+      <button type="button" onClick={() => toggleModalWindow()}>Cancel</button>
+    </Fragment>
+  </form>
+);
 
-export default ClassificationCreator;
+ClassificationCreator.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  toggleModalWindow: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = {
+  toggleModalWindow: toggleFormVisibilityActionCreator,
+};
+
+export default reduxForm({
+  form: 'classificationCreator',
+  validate,
+})(connect(null, mapDispatchToProps)(ClassificationCreator));

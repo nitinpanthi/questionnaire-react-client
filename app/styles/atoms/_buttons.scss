@@ -2,18 +2,21 @@
 @import '../helpers/fonts';
 
 @mixin button($primary, $secondary) {
-  border: 2px solid $primary;
+  border-radius: 4px;
   background: $secondary;
   color: $primary;
-  padding: 8px;
+  padding: 7px;
   font-family: $normal;
-  font-size: 15px;
   font-weight: bold;
+  border: 2px solid $secondary;
+  cursor: pointer;
+}
 
+@mixin highlightOnHover($primary, $secondary) {
   &:hover {
+    border: 2px solid $secondary;
     background: $primary;
     color: $secondary;
-    cursor: pointer;
   }
 }
 
@@ -32,14 +35,16 @@
 }
 
 .button_disabled {
-  border: 2px solid $disabled;
-  background: $disabled;
-  color: $clear;
-  padding: 8px;
+  @include button($clear, $disabled);
+}
+
+.button_default {
+  @include button($clear, $slate);
 }
 
 .button_active {
-  @include button($active, $clear);
+  @include button($clear, $active);
+  @include highlightOnHover($clear, $active);
 }
 
 .button_warning {
@@ -48,4 +53,8 @@
 
 .button_no_outline_active {
   @include button_no_outline($active, $clear)
+}
+
+.button_no_outline {
+  @include button_no_outline($auto, $clear)
 }

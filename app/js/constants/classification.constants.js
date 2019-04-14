@@ -1,4 +1,6 @@
-export const administrationColumnDefs = [
+import ActionsCellRenderer from '../components/administration/classification/ActionsCellRenderer';
+
+export const classificationHeaders = [
   {
     headerName: 'ID',
     field: 'id',
@@ -18,4 +20,11 @@ export const administrationColumnDefs = [
   },
 ];
 
-export const a = 'b';
+export const getClassificationGridOptions = classifications => ({
+  columnDefs: classificationHeaders,
+  rowData: classifications,
+  frameworkComponents: {
+    actionsCellRenderer: ActionsCellRenderer,
+  },
+  rowHeight: 40,
+});

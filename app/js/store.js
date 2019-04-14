@@ -3,6 +3,7 @@ import {
   applyMiddleware,
 } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers/index';
 
@@ -13,7 +14,7 @@ const middleWare = [thunk];
 const store = createStore(
   rootReducer,
   initialState,
-  applyMiddleware(...middleWare),
+  composeWithDevTools(applyMiddleware(...middleWare)),
 );
 
 export default store;

@@ -44,7 +44,3 @@ export default class AssessmentsGrid extends Component {
 AssessmentsGrid.propTypes = {
   users: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-// const mapStateToProps = state => ({ assessments: state.assessments });
-
-// export default connect(mapStateToProps)(AssessmentsGrid);

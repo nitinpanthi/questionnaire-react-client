@@ -2,6 +2,9 @@ import {
   combineReducers,
 } from 'redux';
 
+import { reducer as formReducer } from 'redux-form';
+
+
 import classificationsReducer from './classifications.reducer';
 import assessmentsReducer from './assessments.reducer';
 import currentAssessmentReducer from './current_assessment.reducer';
@@ -14,4 +17,5 @@ export default combineReducers({
   currentAssessment: currentAssessmentReducer,
   currentQuestion: currentQuestionReducer,
   profile: profileReducer,
+  form: formReducer,
 });
