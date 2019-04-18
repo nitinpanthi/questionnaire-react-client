@@ -6,8 +6,14 @@ import {
   updateClassificationListActionCreator,
   toggleFormVisibilityActionCreator,
   fetchClassifications,
+  saveClassification,
 } from '../../../actions/classification.actions';
-import ClassificationsGrid from './ClassificationsGrid';
+
+import withGrid from '../../shared/WithGrid';
+import ClassificationCreator from './form/ClassificationCreator';
+import { getClassificationGridOptions } from '../../../constants/classification.constants';
+
+const ClassificationsGrid = withGrid('Classifications', 'New Classification', saveClassification)(ClassificationCreator);
 
 class ClassificationsGridContainer extends Component {
   componentDidMount() {
@@ -20,9 +26,10 @@ class ClassificationsGridContainer extends Component {
     const { classifications, toggleModalWindow, isModalWindowOpen } = this.props;
     return (
       <ClassificationsGrid
-        classifications={classifications}
+        rows={classifications}
         toggleModalWindow={toggleModalWindow}
         isModalWindowOpen={isModalWindowOpen}
+        initialGridOptions={getClassificationGridOptions(classifications)}
       />
     );
   }

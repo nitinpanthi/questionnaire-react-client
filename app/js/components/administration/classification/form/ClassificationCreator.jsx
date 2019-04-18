@@ -4,43 +4,17 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 
 import {
-  saveClassification,
   toggleFormVisibilityActionCreator,
-} from '../../../actions/classification.actions';
+} from '../../../../actions/classification.actions';
 
-const validate = (values) => {
-  const errors = {};
-  if (!values.name) {
-    errors.name = 'Classification name is required.';
-  }
-  if (!values.description) {
-    errors.description = 'Classification description is required.';
-  }
-  return errors;
-};
-
-const renderInput = ({ input, meta, label }) => (
-  <Fragment>
-    <label>
-      {label}
-    </label>
-    <input {...input} />
-    {meta.error
-      && meta.touched
-      && (
-        <span>
-          {meta.error}
-        </span>
-      )
-    }
-  </Fragment>
-);
+import validateClassification from './classification.form.validator';
+import ClassificationInputRenderer from '../../../shared/InputValidationsRenderer';
 
 const ClassificationCreator = ({ handleSubmit, toggleModalWindow, onSubmit }) => (
   <form onSubmit={handleSubmit(onSubmit)}>
     <Fragment>
-      <Field name="name" label="Name" component={renderInput} />
-      <Field name="description" label="Description" component={renderInput} />
+      <Field name="name" label="Name" component={ClassificationInputRenderer} />
+      <Field name="description" label="Description" component={ClassificationInputRenderer} />
       <button type="submit" className="button_active">Submit</button>
       <button type="button" onClick={() => toggleModalWindow()}>Cancel</button>
     </Fragment>
@@ -59,5 +33,5 @@ const mapDispatchToProps = {
 
 export default reduxForm({
   form: 'classificationCreator',
-  validate,
+  validate: validateClassification,
 })(connect(null, mapDispatchToProps)(ClassificationCreator));

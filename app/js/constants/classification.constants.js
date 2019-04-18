@@ -1,4 +1,4 @@
-import ActionsCellRenderer from '../components/administration/classification/ActionsCellRenderer';
+import ActionsCellRenderer from '../components/administration/classification/form/ActionsCellRenderer';
 
 export const classificationHeaders = [
   {

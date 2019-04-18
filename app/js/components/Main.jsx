@@ -1,13 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import AssessmentsList from './assessment/AssessmentsList';
-import Administration from './administration/Administration';
+import PropTypes from 'prop-types';
 
-export default function Main() {
-  return (
-    <main>
-      <Route exact path="/" component={AssessmentsList} />
-      <Route path="/administration" component={Administration} />
-    </main>
-  );
-}
+const Main = ({ children }) => (
+  <main>
+    {children}
+  </main>
+);
+
+Main.propTypes = {
+  children: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default Main;

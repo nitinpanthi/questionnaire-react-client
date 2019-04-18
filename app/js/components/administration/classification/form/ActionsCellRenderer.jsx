@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MdDelete as DeleteIcon } from 'react-icons/md';
 
-import { deleteClassification } from '../../../actions/classification.actions';
+import { deleteClassification } from '../../../../actions/classification.actions';
 
 const ActionsCellRenderer = ({ value, api }) => (
   <div>

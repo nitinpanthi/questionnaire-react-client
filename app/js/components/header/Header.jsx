@@ -1,12 +1,14 @@
 import React from 'react';
-import Navigation from './Navigation';
-import Logo from './navigation/Logo';
+import PropTypes from 'prop-types';
 
-export default function Header() {
-  return (
-    <header>
-      <Logo />
-      <Navigation />
-    </header>
-  );
-}
+const Header = ({ children }) => (
+  <header>
+    {children}
+  </header>
+);
+
+Header.propTypes = {
+  children: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default Header;
