@@ -5,10 +5,10 @@ import { reduxForm, Field } from 'redux-form';
 
 import {
   toggleFormVisibilityActionCreator,
-} from '../../../../actions/classification.actions';
+} from '../../../actions/classification.actions';
 
-import validateClassification from './classification.form.validator';
-import ClassificationInputRenderer from '../../../shared/InputValidationsRenderer';
+import validateClassification from '../../../utils/form_validators/classification.form.validator';
+import ClassificationInputRenderer from '../../shared/InputValidationsRenderer';
 
 const ClassificationCreator = ({ handleSubmit, toggleModalWindow, onSubmit }) => (
   <form onSubmit={handleSubmit(onSubmit)}>

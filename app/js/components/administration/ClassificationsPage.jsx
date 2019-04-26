@@ -5,11 +5,11 @@ import {
   toggleFormVisibilityActionCreator,
   fetchClassifications,
   saveClassification,
-} from '../../../actions/classification.actions';
+} from '../../actions/classification.actions';
 
-import withConnectedGrid from '../../shared/WithGridContainer';
-import ClassificationCreator from './form/ClassificationCreator';
-import { getClassificationGridOptions } from '../../../constants/classification.constants';
+import withConnectedGrid from '../shared/WithGridContainer';
+import ClassificationCreator from './forms/ClassificationCreator';
+import { getClassificationGridOptions } from '../../constants/classification.constants';
 
 const storeActions = {
   dispatchFetchedRows: updateClassificationListActionCreator,
