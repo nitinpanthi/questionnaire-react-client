@@ -1,10 +1,10 @@
 const classificationFormValidator = (values) => {
   const errors = {};
   if (!values.name) {
-    errors.name = 'Classification name is required.';
+    errors.name = 'Required.';
   }
   if (!values.description) {
-    errors.description = 'Classification description is required.';
+    errors.description = 'Required.';
   }
   return errors;
 };

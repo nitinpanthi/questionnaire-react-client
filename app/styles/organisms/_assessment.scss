@@ -40,10 +40,12 @@
 
     ul li {
       list-style: none;
-      background: $tomato;
-      color: $smoke;
+      background: $clear;
+      border: 2px solid $active;
+      border-radius: 8px;
+      color: $active;
       display: inline-block;
-      padding: 10px;
+      padding: 8px;
       font-weight: bold;
       margin-right: 5px;
       position: relative;

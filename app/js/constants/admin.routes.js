@@ -1,13 +1,13 @@
-import ClassificationsGridContainer from '../components/administration/classification/ClassificationsGridContainer';
+import ClassificationsPage from '../components/administration/ClassificationsPage';
 import AssessmentCreator from '../components/administration/assessment/AssessmentCreator';
-import Users from '../components/administration/user/Users';
+import UsersPage from '../components/administration/UsersPage';
 
 const routes = [
   {
     label: 'Classifications',
     path: '/administration/classifications',
     exact: true,
-    component: ClassificationsGridContainer,
+    component: ClassificationsPage,
   },
   {
     label: 'Assessments',
@@ -19,7 +19,7 @@ const routes = [
     label: 'Users',
     path: '/administration/users',
     exact: true,
-    component: Users,
+    component: UsersPage,
   },
 ];
 

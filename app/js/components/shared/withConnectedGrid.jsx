@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import withGrid from './WithGrid';
+import withGrid from './withGrid';
 
 const withConnectedGrid = ({ selectors, actions, store }) => (FormComponent) => {
   const { save, fetchRows, getGridOptions } = actions;
@@ -22,7 +22,7 @@ const withConnectedGrid = ({ selectors, actions, store }) => (FormComponent) => 
         <GridComponent
           rows={rows}
           toggleModalWindow={toggleFormWindow}
-          isModalWindowOpen={isFormWindowOpen}
+          isFormWindowOpen={isFormWindowOpen}
           initialGridOptions={getGridOptions(rows)}
         />
       );
@@ -32,7 +32,10 @@ const withConnectedGrid = ({ selectors, actions, store }) => (FormComponent) => 
   GridContainer.propTypes = {
     dispatchFetchedRows: PropTypes.func.isRequired,
     toggleFormWindow: PropTypes.func.isRequired,
-    rows: PropTypes.arrayOf(PropTypes.object).isRequired,
+    rows: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.object),
+      PropTypes.instanceOf(Object),
+    ]).isRequired,
     isFormWindowOpen: PropTypes.bool.isRequired,
   };
 

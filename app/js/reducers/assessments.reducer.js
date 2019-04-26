@@ -1,8 +1,6 @@
-  import {
-  GET_ASSIGNED_ASSESSMENTS,
-  GET_EDITABLE_ASSESSMENTS,
-  GET_ASSESSMENTS,
-} from '../actions/types';
+const GET_ASSIGNED_ASSESSMENTS = 'assessments.GET_ASSIGNED_ASSESSMENTS';
+const GET_EDITABLE_ASSESSMENTS = 'assessments.GET_EDITABLE_ASSESSMENTS';
+const GET_ASSESSMENTS = 'assessments.GET_ASSESSMENTS';
 
 const initialState = {
   viewable: [],

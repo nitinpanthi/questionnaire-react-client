@@ -1,4 +1,4 @@
-export const getAll = () => fetch('/secured/api/users');
+export const getAll = () => fetch('/api/users');
 
 export const get = userId => fetch(`/secured/api/user/${userId}`);
 

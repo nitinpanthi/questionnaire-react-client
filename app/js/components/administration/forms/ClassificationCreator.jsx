@@ -5,16 +5,16 @@ import { reduxForm, Field } from 'redux-form';
 
 import {
   toggleFormVisibilityActionCreator,
-} from '../../../../actions/classification.actions';
+} from '../../../actions/classification.actions';
 
-import validateClassification from './classification.form.validator';
-import ClassificationInputRenderer from '../../../shared/InputValidationsRenderer';
+import validateClassification from '../../../validators/classification.form.validator';
+import InputRenderer from '../../shared/FormInputRenderer';
 
 const ClassificationCreator = ({ handleSubmit, toggleModalWindow, onSubmit }) => (
   <form onSubmit={handleSubmit(onSubmit)}>
     <Fragment>
-      <Field name="name" label="Name" component={ClassificationInputRenderer} />
-      <Field name="description" label="Description" component={ClassificationInputRenderer} />
+      <Field name="name" label="Name" component={InputRenderer} />
+      <Field name="description" label="Description" component={InputRenderer} />
       <button type="submit" className="button_active">Submit</button>
       <button type="button" onClick={() => toggleModalWindow()}>Cancel</button>
     </Fragment>

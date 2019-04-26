@@ -1,15 +1,13 @@
-import React from 'react';
-
 import {
   updateClassificationListActionCreator,
   toggleFormVisibilityActionCreator,
   fetchClassifications,
   saveClassification,
-} from '../../../actions/classification.actions';
+} from '../../actions/classification.actions';
 
-import withConnectedGrid from '../../shared/WithGridContainer';
-import ClassificationCreator from './form/ClassificationCreator';
-import { getClassificationGridOptions } from '../../../constants/classification.constants';
+import withConnectedGrid from '../shared/withConnectedGrid';
+import ClassificationCreator from './forms/ClassificationCreator';
+import { getClassificationGridOptions } from '../../constants/classification.constants';
 
 const storeActions = {
   dispatchFetchedRows: updateClassificationListActionCreator,
@@ -18,7 +16,7 @@ const storeActions = {
 
 const storeSelectors = state => ({
   rows: state.classifications.list,
-  isFormWindowOpen: state.classifications.isCreateClassificationFormOpen,
+  isFormWindowOpen: state.classifications.isFormWindowOpen,
 });
 
 export default withConnectedGrid(

@@ -1,7 +1,7 @@
 import {
-  UPDATE_CLASSIFICATION_LIST,
-  TOGGLE_CREATE_CLASSIFICATION_FORM,
-} from '../actions/classification.actions';
+  UPDATE_USER_LIST,
+  TOGGLE_CREATE_USER_FORM,
+} from '../actions/user.actions';
 
 
 export const initialState = {
@@ -13,13 +13,13 @@ export const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case UPDATE_CLASSIFICATION_LIST:
+    case UPDATE_USER_LIST:
       return {
         ...state,
         list: action.value,
       };
 
-    case TOGGLE_CREATE_CLASSIFICATION_FORM:
+    case TOGGLE_CREATE_USER_FORM:
       return {
         ...state,
         isFormWindowOpen: !state.isFormWindowOpen,

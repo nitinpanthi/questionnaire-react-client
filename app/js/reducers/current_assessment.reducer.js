@@ -1,9 +1,7 @@
-import {
-  CREATE_ASSESSMENT,
-  ADD_QUESTION_TO_ASSESSMENT,
-  LOAD_ASSESSMENT,
-  SUBMIT_ASSESSMENT,
-} from '../actions/types';
+const CREATE_ASSESSMENT = 'currentAssessment.CREATE_ASSESSMENT';
+const ADD_QUESTION_TO_ASSESSMENT = 'currentAssessment.ADD_QUESTION_TO_ASSESSMENT';
+const LOAD_ASSESSMENT = 'currentAssessment.LOAD_ASSESSMENT';
+const SUBMIT_ASSESSMENT = 'currentAssessment.SUBMIT_ASSESSMENT';
 
 const initialState = {
   title: '',
