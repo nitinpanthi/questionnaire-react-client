@@ -6,7 +6,7 @@ import {
 
 export const initialState = {
   list: [],
-  isCreateClassificationFormOpen: false,
+  isFormWindowOpen: false,
   gridOptions: {},
 };
 
@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
     case TOGGLE_CREATE_CLASSIFICATION_FORM:
       return {
         ...state,
-        isCreateClassificationFormOpen: !state.isCreateClassificationFormOpen,
+        isFormWindowOpen: !state.isFormWindowOpen,
       };
 
     default:

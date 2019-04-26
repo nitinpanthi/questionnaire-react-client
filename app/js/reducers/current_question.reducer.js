@@ -1,10 +1,8 @@
-import {
-  CREATE_QUESTION,
-  LOAD_EDITABLE_QUESTION,
-  SAVE_QUESTION,
-  LOAD_VIEWABLE_QUESTION,
-  SUBMIT_QUESTION_ATTEMPT,
-} from '../actions/types';
+const CREATE_QUESTION = 'currentQuestion.CREATE_QUESTION';
+const LOAD_EDITABLE_QUESTION = 'currentQuestion.LOAD_EDITABLE_QUESTION';
+const SAVE_QUESTION = 'currentQuestion.SAVE_QUESTION';
+const LOAD_VIEWABLE_QUESTION = 'currentQuestion.LOAD_VIEWABLE_QUESTION';
+const SUBMIT_QUESTION_ATTEMPT = 'currentQuestion.SUBMIT_QUESTION_ATTEMPT';
 
 const initialState = {
   title: '',

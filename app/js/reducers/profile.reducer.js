@@ -1,6 +1,4 @@
-import {
-  LOAD_USER,
-} from '../actions/types';
+const LOAD_USER = 'profile.LOAD_USER';
 
 const initialState = {
   firstName: '',
