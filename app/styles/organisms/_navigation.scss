@@ -1,0 +1,72 @@
+@import '../helpers/colors';
+@import '../molecules/searchbar';
+@import '../atoms/q';
+
+.navigation {
+  background: $slate;
+  padding: 0px;
+
+  ul {
+    max-width: 60%;
+    margin: 0 auto;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 0 4px;
+
+      a {
+        padding: 24px 32px;
+        text-decoration: none;
+        color: $smoke;
+        display: block;
+
+        &:hover {
+          padding-top: 18px;
+          border-top: 6px solid $active;
+          background: $smoke;
+          color: $active;
+
+          .active {
+            background: $clear;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sub_navigation {
+  background: $clear;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 0;
+
+  ul {
+    margin: 0;
+    padding: 0px 20px;
+
+    li {
+      display: inline-block;
+
+      a {
+        padding: 18px;
+        margin: 0 auto;
+        text-decoration: none;
+        display: block;
+        color: $slate;
+
+        &:hover {
+          border-bottom: 4px solid $slate;
+          padding-bottom: 14px;
+
+          .active {
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+}

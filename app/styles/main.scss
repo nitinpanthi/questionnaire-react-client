@@ -1,0 +1,23 @@
+@import './atoms/buttons';
+@import './atoms/headings';
+@import './atoms/paragraphs';
+
+@import './pages/home';
+@import './pages/reactModal';
+@import './pages/adminPage';
+@import './organisms/grid';
+
+body {
+  font-family: $normal;
+  font-size: 15px;
+  background: $smoke;
+  color: $auto;
+}
+
+main {
+  min-height: 600px;
+}
+
+header {
+  background: $clear;
+}

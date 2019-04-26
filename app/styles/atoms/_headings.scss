@@ -1,0 +1,26 @@
+@import '../helpers/fonts';
+@import '../helpers/colors';
+
+h1 {
+  font-family: $heading;
+  // color: $slate;
+  font-size: 28px;
+}
+
+h2 {
+  font-family: $heading;
+  // color: $slate;
+  font-size: 22px;
+}
+
+h3 {
+  font-family: $heading;
+  // color: $slate;
+  font-size: 18px;
+}
+
+h4 {
+  font-family: $heading;
+  color: $slate;
+  font-size: 16px;
+}
