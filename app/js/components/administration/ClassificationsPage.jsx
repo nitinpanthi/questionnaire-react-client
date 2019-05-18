@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   updateClassificationListActionCreator,
   toggleFormVisibilityActionCreator,
@@ -7,7 +5,7 @@ import {
   saveClassification,
 } from '../../actions/classification.actions';
 
-import withConnectedGrid from '../shared/WithGridContainer';
+import withConnectedGrid from '../shared/withConnectedGrid';
 import ClassificationCreator from './forms/ClassificationCreator';
 import { getClassificationGridOptions } from '../../constants/classification.constants';
 
@@ -18,7 +16,7 @@ const storeActions = {
 
 const storeSelectors = state => ({
   rows: state.classifications.list,
-  isFormWindowOpen: state.classifications.isCreateClassificationFormOpen,
+  isFormWindowOpen: state.classifications.isFormWindowOpen,
 });
 
 export default withConnectedGrid(

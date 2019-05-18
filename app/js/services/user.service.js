@@ -1,4 +1,4 @@
-export const getAll = () => fetch('/secured/api/users');
+export const getAll = () => fetch('/api/users');
 
 export const get = userId => fetch(`/secured/api/user/${userId}`);
 
@@ -7,7 +7,8 @@ export const create = user => fetch('/secured/api/user', {
   headers: {
     'Content-Type': 'application/json',
   },
-}, user);
+  body: JSON.stringify(user),
+});
 
 export const remove = userId => fetch(`/secured/api/user/${userId}`, {
   method: 'DELETE',

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { IoIosAdd, IoIosClose } from 'react-icons/io';
 import ReactModal from 'react-modal';
 import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 const withGrid = (pageTitle, formTitle, save) => (WrappedForm) => {
@@ -26,15 +27,50 @@ const withGrid = (pageTitle, formTitle, save) => (WrappedForm) => {
     onSubmit(formData) {
       const { gridOptions } = this.state;
       save(formData)
-        .then(rows => gridOptions.api.setRowData(rows));
+        .then(rows => (
+          rows.error
+            ? gridOptions.api.setRowData([])
+            : gridOptions.api.setRowData(rows)
+        ));
+    }
+
+    renderGrid() {
+      const {
+        rows,
+        initialGridOptions,
+      } = this.props;
+
+      return rows && rows.length !== 0
+        ? (
+          <div
+            className="ag-theme-balham"
+            style={{
+              height: '500px',
+              marginTop: '20px',
+            }}
+          >
+            <AgGridReact
+              gridOptions={initialGridOptions}
+              onGridReady={this.onGridReady}
+            />
+          </div>
+        )
+        : null;
+    }
+
+    renderError() {
+      const {
+        rows,
+      } = this.props;
+
+      return (<div>{rows.error}</div>);
     }
 
     render() {
       const {
         rows,
         toggleModalWindow,
-        isModalWindowOpen,
-        initialGridOptions,
+        isFormWindowOpen,
       } = this.props;
 
       return (
@@ -45,7 +81,7 @@ const withGrid = (pageTitle, formTitle, save) => (WrappedForm) => {
             {formTitle}
           </button>
           <ReactModal
-            isOpen={isModalWindowOpen}
+            isOpen={isFormWindowOpen}
             className="modal_small"
           >
             <h3>{formTitle}</h3>
@@ -56,22 +92,7 @@ const withGrid = (pageTitle, formTitle, save) => (WrappedForm) => {
           </ReactModal>
 
           {
-            rows && rows.length !== 0
-              ? (
-                <div
-                  className="ag-theme-balham"
-                  style={{
-                    height: '500px',
-                    marginTop: '20px',
-                  }}
-                >
-                  <AgGridReact
-                    gridOptions={initialGridOptions}
-                    onGridReady={this.onGridReady}
-                  />
-                </div>
-              )
-              : null
+            rows.error ? this.renderError() : this.renderGrid()
           }
         </section>
       );
@@ -81,7 +102,7 @@ const withGrid = (pageTitle, formTitle, save) => (WrappedForm) => {
   _WrapppedForm.propTypes = {
     rows: PropTypes.arrayOf(PropTypes.object).isRequired,
     toggleModalWindow: PropTypes.func.isRequired,
-    isModalWindowOpen: PropTypes.bool.isRequired,
+    isFormWindowOpen: PropTypes.bool.isRequired,
     initialGridOptions: PropTypes.instanceOf(Object).isRequired,
   };
 

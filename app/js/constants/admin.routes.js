@@ -1,6 +1,6 @@
 import ClassificationsGridContainer from '../components/administration/ClassificationsPage';
 import AssessmentCreator from '../components/administration/assessment/AssessmentCreator';
-import Users from '../components/administration/user/Users';
+import Users from '../components/administration/UsersPage';
 
 const routes = [
   {
